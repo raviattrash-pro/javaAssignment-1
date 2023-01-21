@@ -11,7 +11,6 @@ class Assignment2{
 		boolean check = obj.palindrome();
 		obj.palcheck(check);
 		obj.Arm();
-		
 	}
 	
 	void Arm(){
@@ -26,10 +25,10 @@ class Assignment2{
 				num = num/10;
 			}
 			if(s==temp){
-				System.out.println("Armstrong Number  !!!!");
+				System.out.println(" Armstrong Number  !!!! ");
 			}
 			else{
-				System.out.println(" Not Armstrong Number  !!!!");
+				System.out.println(" Not Armstrong Number  !!!! ");
 			}
 		}
 	
@@ -155,3 +154,5 @@ class Assignment2{
 		}
 	}
 }
+
+//https://github.com/raviattrash-pro/javaAssignment-1.git

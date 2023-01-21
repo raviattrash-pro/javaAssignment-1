@@ -1,0 +1,9 @@
+Binary search -> sorted array -> mid =l+r/2 change according
+
+ceiling problem => smallest element in arr greater or = target
+arr =[2,3,5,9,14,16,18]
+
+celing(arr,target=14) =14
+celing(arr,target=15) =16 -> 15 is greater than 14 nums will be 16,18 among them 16 is smallest so ans =16
+target =4 -> 5  -> 
+
