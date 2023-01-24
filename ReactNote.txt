@@ -1,0 +1,188 @@
+React Basic
+_____________________________________________________________________________________________________________
+-> Js lib used in UI 
+->developed by facebook
+->not having many functionality like routing -> so React is not framework
+-> external lib used to make more powerful that other framework-> many option availble 
+->ex -> udmemy and youtube
+->Angular &Vue -> having bunndle -> heavy -> ex: medical store (you sick need only one medicine)
+->React is light weigth
+->mobile -> react native
+-> Single page Application 
+->normal webpage -> whole page is reload /render but in react only changes in particular component is render
+->React is fast
+-> Prequest-> HTML,CSS,JS,ES6
+-> need Vs code 
+-> extension -> extra feature -> pretter -> code formatter -> ctrl+shift+p
+								-> liveserver -> dummy server
+______________________________________________________________________________________________________________
+->ES6 
+
+->let -> variable, const -> constant
+
+_________________________________________________________
+->arraow function 
+	let functionname = () =>{
+		console.log();
+	}
+-> if one argument
+	let functionname =name =>name;
+		console.log(name);
+		
+=> let double = num => num*2;
+console.log(double(10)); -> o/p -> 20
+__________________________________________________
+Import and export or module 
+
+const person = {
+	name = "ravi";
+}
+export default person ;
+
+
+or
+ export let hello = () => {
+	console.log("hello");
+ }
+ export let data =10;
+ 
+ 
+ -> import {hello} from 'file location'
+ ->import {data as da} from 'file location'
+ ->import * as bunddle from 'file location'
+ bundle.hello();
+ bundle.data;
+ 
+____________________________________________________________________
+ 
+class and object 
+
+class customer {
+	constructor(n){
+	this.name =n; //variable 
+	}
+	
+	buy(){
+		console.log("");
+	}
+}
+
+-> inheritance 
+
+_________________________________________________________________________
+
+split &rest operator
+-> copy data
+->if used in function argument -> rest -> help to take any no. of argument 
+let list = {'a','b','c'}
+let newlist = [...list,'he'];
+console.log(newlist);
+-> copy all the element of list to new list 
+
+let person ={
+	name :"Abc";
+	age:20;
+}
+
+let newpersom{
+	...person;
+	city:'delhi';
+}
+console.log(newlist);
+-> copy all the element of list to newperson object
+
+function hello(...all){
+	console.log(all);
+} 
+
+hello(1,2,3);
+-> flexible to pass any no. of argument
+
+______________________________________________________________
+
+Array Destructuring 
+
+let list = ['a','b','c'];
+[ca,c2,c3] = list
+-> individual name to the list element
+console.log(c1)  => a
+
+
+_________________________________________________________________________
+
+Object Destructuring
+
+const person = {
+	name:"ravi";
+	age :20;
+}
+let{name,age} = person 
+console.log(age)  => 20
+
+____________________________________________________________________________
+
+Reference and Primitive
+
+let num =10;
+let num2 = num1;
+num2=20;
+
+
+let Person ={
+	name :'ravi';
+}
+let person2 = person 
+
+person2.name = "R";
+
+-> Both person and person 2 will be changed
+_______________________________________________________________________________
+
+Map 
+
+let array1 = [2,5,7,10]
+let array2 = arrary1.map(function (x){
+	return x*2;
+});
+
+console.log(array2);
+
+or 
+let array2 = array1.map(x=>x*2);
+let array2 = array1.filter(x=>x%2==0);
+
+_______________________________________________________________________________________
+
+React is all about components
+->reusable building block
+->component -> Html,css,js
+
+sum of component -> page
+
+_______________________________________________________________________
+
+React app 
+
+-> npx create-react-app name of project
+->gitignore -> what not to push
+->Readmc.md -> detail of the project
+-> package .json -> meta data record
+->package-lock.json -> node 
+
+-> nodeModule folder -> npm all imports file doc
+->public -> favicon -> title bar image,  robotic.txt -> SEO(search engine optimization) -> search engine what to call
+->manifecto.json -> BWA website progress web app
+
+-> index.html -> page where all the component render
+
+
+
+
+
+
+ 
+
+
+
+	
+
