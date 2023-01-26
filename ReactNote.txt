@@ -174,10 +174,32 @@ React app
 ->manifecto.json -> BWA website progress web app
 
 -> index.html -> page where all the component render
+	-> <noscript> -> when user not enable js in browser it give warning
+	-><div id="root"> => all react component fit here 
+	-> it is shown in as source code -> ctrl+u => 
+	->bundle,main chunk.js 
 
-
-
-
+-> Src -> App.test.js,setupTest.js -> testing purpose	
+		-> reportWebVitals.js => generate report 
+		->logo.svg -> image
+		-> index.js -> very important->react,react-dom => import from node_module -> provided by facebook
+				-> index.css also include -> all properties store which is universal -> ex:body
+				-> React app start from this file 
+				->ReactDOM.render -> all component include here
+					-> React.SrciptMode -> used to on the script mode in react
+					-> App -> App.js wale ko render kar na hai
+				->index.js -> import ReactDom from 'react-dom';
+					->ReactDom.render(<h2>Hiiiii</h2>,document.getElemlentById('root'));	
+		-> App.js => import css ans image
+			->component can be build by function and class -> many time is prefer function
+			-> jsx -> before this we use string as html
+			
+		-> Myapp -> component -> function App(){return <h2>Hello<h2>;} export default App; -> default is used to change name when required
+		->in index.js -> import myApp from 'path';
+		->ReactDom.render(<Myapp>,document.getElemlentById('root'));  -> component fisr letter is capital
+		-> return only return one tag so we wrap it into div
+		
+		
 
 
  
