@@ -295,5 +295,36 @@ class Solution {
 }
 _____________________________________________________________________
 
-Q11
+Q11,13,14,15,19,22
+
+________________________________________________________________
+Q12
+
+class Solution {
+public int largestAltitude(int[] arr) {
+int sum=0;
+int m=0;
+for(int i=0;i<arr.length;i++){
+sum=sum+arr[i];
+m=Integer.max(m,sum);
+
+    }
+    return m;
+
+}
+}
+______________________________________________________________________
+Q16 no of even digit number
+class Solution {
+    public int findNumbers(int[] nums) {
+        int sum = 0;
+
+        for (int num : nums) {
+            if ((num > 9 && num < 100) || (num >= 1000 && num < 10000) || num == 100000) {
+                sum++;
+            }
+        }
+        return sum;
+    }
+}
 		
