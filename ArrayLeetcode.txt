@@ -295,8 +295,7 @@ class Solution {
 }
 _____________________________________________________________________
 
-Q11,13,14,15,19,22
-
+Q11,13,14,22
 ________________________________________________________________
 Q12
 
@@ -313,7 +312,24 @@ m=Integer.max(m,sum);
 
 }
 }
-______________________________________________________________________
+
+_______________________________________________________
+Q15
+
+class Solution {
+    public int diagonalSum(int[][] mat) {
+        int len = mat.length;
+        int sum =0;
+        for(int i = 0;i<len;i++){
+            int ele1 = mat[i][i];
+            int ele2 = mat[i][len-i-1];
+            sum+=ele1+ele2;
+        }
+        if(len%2==0) return sum;
+        else return sum - mat[len/2][len/2];
+    }
+}
+____________________________________________________________________
 Q16 no of even digit number
 class Solution {
     public int findNumbers(int[] nums) {
@@ -327,4 +343,130 @@ class Solution {
         return sum;
     }
 }
+___________________________________________________________________________
+
+Q17  Please revise this
+
+class Solution {
+    public int[][] transpose(int[][] matrix) {
+
+       int m = matrix.length, n = matrix[0].length;
+        int[][] ans = new int[n][m];
+        for (int r = 0; r < m; ++r)
+            for (int c = 0; c < n; ++c) {
+                ans[c][r] = matrix[r][c];
+            }
+        return ans;
+        
+    }
+}
+
+_________________________________________________________________________
 		
+Q18  Revise
+
+class Solution {
+    public List<Integer> addToArrayForm(int[] A, int K) {
+         int N = A.length;
+        int cur = K;
+        List<Integer> ans = new ArrayList();
+
+        int i = N;
+        while (--i >= 0 || cur > 0) {
+            if (i >= 0)
+                cur += A[i];
+            ans.add(cur % 10);
+            cur /= 10;
+        }
+
+        Collections.reverse(ans);
+        return ans;
+    }
+}
+
+____________________________________________________________________________
+
+Q19  1950-2050
+logs = [[1950,1961],[1960,1971],[1970,1981]]
+Output: 1960
+Explanation: 
+The maximum population is 2, and it had happened in years 1960 and 1970.
+The earlier year between them is 1960.
+
+
+class Solution {
+     public int maximumPopulation(int[][] logs) {
+        
+        int[] year = new int[101];
+		// O(n) -> n is log.length
+
+        for(int[] log : logs){
+            year[log[0] - 1950]++;
+            year[log[1] - 1950]--;
+        }
+        
+        int maxNum = year[0], maxYear = 1950;
+
+        for(int i = 1; i < year.length; i++){
+            year[i] += year[i - 1];  // Generating Prefix Sum
+            if(year[i] > maxNum){
+                maxNum = year[i];
+                maxYear = i + 1950;
+            }
+        }
+        return maxYear;
+    }
+}
+
+_________________________________________________________________________
+
+
+
+Q20
+
+class Solution {
+    public boolean findRotation(int[][] mat, int[][] target) {
+        boolean []res = new boolean[]{true, true, true, true};
+        int to = mat.length - 1;
+        for(int i = 0; i <= to; i++) {
+            for(int j = 0; j < mat[0].length; j++) {
+                if(mat[i][j] !=target[i][j]) res[0] = false;
+                if(mat[i][j] != target[to-j][i]) res[1] = false;
+                if(mat[i][j] != target[to-i][to-j]) res[2] = false;
+                if(mat[i][j] != target[j][to-i]) res[3] = false;
+            }
+        }
+        return res[0] || res[1] || res[2] || res[3]; 
+    }
+}
+_________________________________________________________________
+
+
+ Universal code for rotating any matrix 90 degree
+        int[][] rotatedMatrix = new int[m][n];
+        for(int i=0; i<n; i++){
+            for (int j=0; j<m; j++){
+                rotatedMatrix[j][n-i-1] = matrix[i][j];
+            }
+        }
+_______________________________________________________________________________
+Q21
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int arr[]=new int[2];
+        for(int i=1;i<nums.length;i++)
+        {
+            for(int j=i;j<nums.length;j++)
+            {
+                if(nums[j]+nums[j-i]==target)
+                    return new int[]{j-i,j};
+            }
+        }
+        return arr;
+        
+    }
+}
+_______________________________________________________________________________
+
+
