@@ -1,0 +1,224 @@
+Revision of OOps concept
+
+JDK(Java Development Kit)
+JRE(Java Runtime Environment)
+JVM(Java Virtual Machine)
+
+Class -> Container
+Object -> instance of a class
+
+Student{
+Property/Variable:
+Instance variable
+Class level Variable/Static Variable
+local variable
+dress
+id
+}
+
+private,default,protected,public -> Access Specifier
+
+Static :-
+1. Class level declare
+2. loading Class level
+3. Static context -> Static method body 
+4. static method can be accessed by class Name
+
+Void - Return type 
+
+main -> name
+
+String args[] -> Command Line arguments
+
+... -> Var args -> equivalent to Array.
+
+class Hello{
+	static int i=1;
+	
+	static int k=30;
+	public static void main(String... args){
+		
+		int j =10;
+		i = 10;
+		System.out.println("amit kumar"+args[1]);
+		Hello.show();
+	}
+	
+	public static void show(){
+		System.out.println("variable"+i);
+	}
+}
+_______________________________________________________________
+byte<char<int<long<float<double
+boolean
+
+array String
+String name ="amit"
+
+______________________________________________________________
+== -> Compare memory allocation
+equals -> Actual value compare karta hai by default unless it is overridden.
+
+______________________________________________________________
+class Hello{
+	static int i=1;
+	
+	static int k=30;
+	public static void main(String... args){
+		String[] name =new String[5];
+		name[0] ="Ravi";
+		int j =10;
+		Integer lm = 129;//object definition
+		i = 10;
+		Integer mn = 129;//object definition
+		System.out.println("amit kumar"+lm);
+		
+		if(lm.equals(mn)){
+			System.out.println("equals metnod working correctly.");
+		}else{
+			System.out.println("equals metnod not working correctly.");
+		}
+		
+		if(lm == mn){
+			System.out.println("== metnod working correctly.");
+		}else{
+			System.out.println("== metnod not working correctly.");
+		}
+		
+		Hello.show();
+	}
+	
+	public static void show(){
+		System.out.println("variable"+i);
+	}
+}
+_______________________________________________________________
+
+Variable Name -> identifier
+keyword -> special meaning for compiler
+_______________________________________________________________
+int-> Integer
+char -> Character
+float -> Float
+long -> Long
+double -> Double
+boolean -> Boolean
+byte -> Byte
+char[](Size should be predifined) -> String(size not fixed)
+_______________________________________________________________
+new -> keyword -> allocates memory
+_______________________________________________________________
+Class
+1. methods
+2. instance variable
+3. local variable
+4. Static/Class level variable
+5. main Function(Starting Point)
+6. Constructor
+_______________________________________________________________
+Constructor(similar to method with few differences):
+1. name -> Should be same as class name
+2. No Return  type -> whole purpose is to initialize instance/Class variables.
+3. if we donot declare any constructor then only Compiles provides us the default constructor.
+
+this -> Current class Object 
+
+Polymorphism (Many forms)
+==========================
+1. Static Polimorphism/Method overloading
+-> Generally it happens within one class(although it can happen in two or more classes as well)
+Method will be having same name and different method signatures.
+Method Signature can be changed in three ways:
+1. Number of arguments - pending
+2. Order of arguments - pending
+3. type of arguments- done
+_______________________________________________________________
+2. Dynamic Polimorphism/Method Overriding
+-> When there is already a method in the parent class but we still provide new definition of the same method in the child class.
+
+-> reference belong to which class
+-> the referenced class contains that method or not. if not then error.
+-> checks object belong to which class.
+-> call the method of that particular type of object class.
+
+-> Method overriding is not applicable to variable/instance variables.
+-> For Method we always look for object.
+-> For Instance variable we always look for variable.
+-> all the parent class members be it a method or a variable it is always present in child class except privated ones.
+-> ByDefault all the instance variables in an interface is public static final.
+_______________________________________________________________
+-> final variable can be only assigned a value in two places:
+1. when it is getting declared.
+2. inside a constructor.
+_______________________________________________________________
+-> Parent object can hold child object
+-> Child object cannot hold parent object
+
+_______________________________________________________________
+/*
+* Object class is the base class of all the classes.
+* 1. when you have just created a class without extending from any other class it will extend from Object class.
+A -> B -> Object
+2. Multilevel Inheritance
+ex: class A extends B{}
+class B extends C{}
+3. Multiple Inheritance:
+ex: class A implements B,C
+interface B{}
+interface C{}
+4. Command for knowing all methods inside a class:
+syntax: javap fullyQualifiedClassName
+ex: javap java.lang.Object
+
+_______________________________________________________________
+*
+*/
+class A extends B{
+public static void main(String args){
+	A obj = new A();
+}
+//object class methods
+}
+class B extends Object{
+
+}
+_______________________________________________________________
+for primitives:
+== operator compares value
+Character char
+Integer int
+Float float
+Long long
+Double double
+Boolean boolean
+== operator compares the reference
+_______________________________________________________________
+
+1. New keyword is used to allocate memory of given type in an Array.
+2. Whenever you try to access any instance variable or method from null object it throws NullPointerException.
+3. All the classes available in java be it user defined or predefined they will always inherit from Object class.
+
+_______________________________________________________________
+/*
+1. Exception: Any problem that can occur during execution of a program which makes a program stop abruptly.
+2. Error: Any problem that can occur during execution of a program which is not recoverable like out of memory error,Class not Found error.
+3.  Object ->
+	Throwable ->
+	Error			     Exception->
+				RuntimeException 	CompileTime
+4. RuntimeException/Unchecked -> Few Exception occurs during runtime are called runtime exception.
+-> Responsible developers.
+-> due to logic written in the program.
+Ex: null pointer Exception, Arithmetic Exception etc
+
+5. Checked/CompileTime -> Few Exceptions are checked by compiler before hand/actual execution those execeptions are called compile time exception.				
+-> API(Application programming interface) Developers generally.
+-> Ex: IOException, InterruptedException etc
+-> public void show () throws IOException
+
+
+6. throw -> When we want to throw any exception.
+ex: throw new UserDefinedException();
+
+7. throws -> This is keyword which enforces the method which is calling to handle the compile time exception.
+*/

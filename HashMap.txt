@@ -1,0 +1,57 @@
+What is HashMap ?
+
+HashMap -> part of the Java collection framework.
+
+It uses a technique called Hashing.
+
+It implements the map interface.
+
+It stores the data in the pair of Key and Value.
+
+HashMap contains an array of the nodes, and the node is represented as a class.
+
+It uses an array and Linked List data structure internally for storing Key and Value. There are four fields
+in HashMap.
+
+1. hash code
+
+2. key
+
+3.value
+
+4. next
+
+
+Important point
+
+If you override the equals() method, then it is mandatory to override the hashCode() method.
+
+hashCode(): -> method of the object class.
+
+-> returns the memory reference of the object in integer form.
+
+-> value received -> method -> used as the bucket number.
+
+-> bucket number -> address ->element inside the map.
+
+-> Hash code of null Key is 0.
+
+Buckets: -> Array of the node
+
+-> Each node has a data structure like a LinkedList.
+
+-> More than one node can share the same bucket.
+
+HashMap<String, Integer> map = new HashMap<>();
+
+map.put(“RAM", 19);
+
+map.put("Syam", 29);
+
+map.put("Raju", 39);
+
+Calculating Index
+
+Index = hashcode(Key) & (n-1)
+
+Where n is the size of the array. Hence the index value for “RAM" is: 2657860 & (16-1) = 4

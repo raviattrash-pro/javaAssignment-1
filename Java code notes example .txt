@@ -1,0 +1,877 @@
+Java code notes example 
+_________________________________________________________________________
+import java.util.*;
+class ArrayListDemo{
+	public static void main(String args[]){
+		Vector<String> al = new Vector<>();//Diamond Syntax - Introduced in java 7 <>->Genric class
+		al.add("sai");
+		al.add("bhavna");
+		al.add("ravi");
+		
+		for(String name: al){
+			if(name.equals("ravi")){
+				al.remove(name);
+			}
+			System.out.println(name);
+		}
+	}
+}
+
+/*
+1.LinkedList- add elements iterate delete 
+2.HashSet- add elements iterate delete 
+3.Vector- add elements iterate delete 
+4.Clear my doubt.
+*/
+____________________________________________________________________
+import java.util.Scanner;
+class CheckingNotPlaceChanging{
+	public static void main(String...args){
+		Scanner read = new Scanner(System.in);
+		String input= read.nextLine();
+		int len = input.length();
+		char [] storeCharacter = new char[len];
+		for(int k =0 ;k<len;k++){
+			storeCharacter[k] = input.charAt(k);
+		}
+		
+		int count=0;
+		int j=len-1;
+		for(int i=0;i<len;i++){
+			if(storeCharacter[i]==storeCharacter[j]){
+				count++;
+				j--;
+			}
+		}
+		System.out.println("number of character not changing the place :"+count);
+	}
+}
+
+__________________________________________________________________
+
+class Parent extends Object{
+	public void display(){
+		System.out.println("Parents class called");
+	}
+}
+class Child extends Parent{
+	public static void main(String args[]){
+		Child obj = new Child();
+		Parent obj1 = new Child();
+		Object obj2 = new Child();
+		Parent obj3 = (Child)obj2;
+		obj.display();
+		obj1.display();
+		//obj2.display();
+		obj3.display();
+		
+	}
+	public void display(String a){
+		System.out.println("child class called");
+		System.out.println(a);
+	}
+}	
+
+_____________________________________________________________________
+
+class ConstructorDemo{
+	int i;
+	float j ;
+	public ConstructorDemo(){
+		i=2;
+		j=5;
+	}
+	public ConstructorDemo(int i,float j){
+		this.i = i;
+		this.j  = j;
+	}
+	public static void main(String args[]){
+		ConstructorDemo s1 = new ConstructorDemo();
+		System.out.println(s1.i);
+		System.out.println(s1.j);
+		
+		ConstructorDemo s2 = new ConstructorDemo(10,15);
+		System.out.println(s2.i);
+		System.out.println(s2.j);
+	}
+}
+___________________________________________________________
+class Creta implments Car{
+	private Wheels wheels;
+	public static void main(String args){
+		
+	}
+}
+class Wheels{
+	String type;
+	int height;
+	int radius;
+}
+interface Car{
+
+}
+/*
+car is parent
+creata is child
+-> parent child relationship -> is a relationhip(implements/extends)
+
+Class is containing any other class object as an instance variable we call it as has a relationship.
+*/
+________________________________________________________________________
+
+class DemoArray{
+	public static void main(String args[]){
+		int a[] = {1,2,3,4};
+		int[] b = new int [5] ;
+		b[0] = 1;
+		b[1] = 2;
+		b[2] = 3;
+		b[3] = 4;
+		b[4] = 5;
+		
+		Student[] studentArray = new Student[5];
+		studentArray[0] = new Student();
+		studentArray[2] = new Student();
+		studentArray[4] = new Student();
+		for(Student ob : studentArray){
+			if(ob != null)
+				System.out.println(ob.i);
+		}
+	}
+}
+class Student{
+	int i=10;
+	public void show(){
+		System.out.println("show method called.");
+	}
+}
+
+/*
+int -> 0
+float -> 0.0f
+double -> 0.0
+long -> 0l
+boolean -> false
+
+Integer -> null
+Float -> null
+Double -> null
+Long -> null
+Boolean -> null
+Object -> null
+*/
+________________________________________________________________________
+
+class DemoNumber{
+	public int sum (int num1,int num2){
+		return num1+num2;
+	}
+	public int sum (int num1,int num2,int num3){
+		return num1+num2+num3;
+	}
+	public int sum (int num1,int num2,int num3,int num4){
+		return num1+num2+num3+num4;
+	}
+	public float sum (float num1,float num2){
+		return num1+num2;
+	}
+	public float sum (float num1,float num2,float num3){
+		return num1+num2+num3;
+	}
+	public float sum (float num1,float num2,float num3,float num4){
+		return num1+num2+num3+num4;
+	}
+	public double sum (double num1,double num2){
+		return num1+num2;
+	}
+	public double sum (double num1,double num2,double num3){
+		return num1+num2+num3;
+	}
+	public double sum (double num1,double num2,double num3,double num4){
+		return num1+num2+num3+num4;
+	}
+	public long sum (long num1,long num2){
+		return num1+num2;
+	}
+	public long sum (long num1,long num2,long num3){
+		return num1+num2+num3;
+	}
+	public long sum (long num1,long num2,long num3,long num4){
+		return num1+num2+num3+num4;
+	}
+	public static void main(String args[]){
+		DemoNumber obj = new DemoNumber();
+		System.out.println(obj.sum(2,3));
+		System.out.println(obj.sum(2,3,4));
+		System.out.println(obj.sum(2,3,4,5));
+		System.out.println(obj.sum(1.2f,1.3f));
+		System.out.println(obj.sum(1.2f,1.3f,1.4f));
+		System.out.println(obj.sum(1.2f,1.3f,1.4f,1.5f));
+		System.out.println(obj.sum(1.1111,1.1123));
+		System.out.println(obj.sum(1.12323,1.2356,2.236));
+		System.out.println(obj.sum(1.236,2.364,2.5316,2.134));
+		System.out.println(obj.sum(223l,531l));
+		System.out.println(obj.sum(123l,1234l,5231l));
+		System.out.println(obj.sum(142l,1234l,13235l,5263l));
+	}
+}
+_______________________________________________________________
+class DemoOverloading{
+	public float sum (int num1,float num2){
+	return num1+num2;
+	}
+	public float sum (float num1,int num2){
+	return num1+num2;
+	}
+	public double sum (float num1,double num2){
+	return num1+num2;
+	}
+	public double sum (double num1,float num2){
+	return num1+num2;
+	}
+	public double sum (int num1,double num2){
+	return num1+num2;
+	}
+	public int sum (int num1,int num2){
+	return num1+num2;
+	}
+	public long sum (long num1,int num2){
+	return num1+num2;
+	}
+	public long sum (int num1,long num2){
+	return num1+num2;
+	}
+	public double sum (long num1,double num2){
+	return num1+num2;
+	}
+	public double sum (double num1,long num2){
+	return num1+num2;
+	}
+	public double sum (double num1,int num2){
+	return num1+num2;
+	}
+	public float sum (float num1,long num2){
+	return num1+num2;
+	}
+	
+	public static void main(String args[]){
+	DemoOverloading obj = new DemoOverloading();
+	System.out.println(obj.sum(15,25.96f));
+	System.out.println(obj.sum(12.28f,90));
+	System.out.println(obj.sum(13.23f,25.968955));
+	System.out.println(obj.sum(14.12586,85.36f));
+	System.out.println(obj.sum(16,25.9658569));
+	System.out.println(obj.sum(18.1386,25));
+	System.out.println(obj.sum(8,8l));
+	System.out.println(obj.sum(5l,6));
+	System.out.println(obj.sum(3,6.93f));
+	System.out.println(obj.sum(63.35f,6l));
+	System.out.println(obj.sum(6,8));
+	}	
+}
+_____________________________________________________
+class DemoPolymorphism{
+	public void multiply(Object num1,Object num2){
+		System.out.println("int method called");
+		System.out.println("num1"+" :" +num1 +"num2 "+" :"+ num2);
+	}
+	public void multiply(Integer num1,Integer num2){
+		System.out.println("Integer method called");
+		System.out.println("num1"+" :" +num1 +"num2 "+" :"+ num2);
+	}
+	public void add(int num1,int num2){
+		System.out.println("Add method called");
+		System.out.println("num1"+" :" +num1 +"num2 "+" :"+ num2);
+	}
+	public void multiply(String num1,String num2){
+		System.out.println("String method called");
+		System.out.println("num1 "+" :"  +" "+num1 +"num2"+" :"+" "+num2);
+	}
+	public static void main(String args[]){
+		DemoPolymorphism obj = new DemoPolymorphism();
+		obj.multiply(null,null);
+		//System.out.println(obj.multiply(4,5));
+		//System.out.println(obj.add(5,8));
+	}
+}
+____________________________________________________________
+interface name1{
+	void besarmahi();
+}
+interface name2{
+	void besarmahi();
+}
+class DemoProperties implements name1,name2{
+	public static void main(String args[]){
+		DemoProperties obj = new DemoProperties();
+		obj.besarmahi();
+		//obj.good();
+	}
+	public void besarmahi(){
+		System.out.println("hello");
+	}
+	/*public void good(){
+		System.out.println("hey");
+	}*/
+}
+/*
+1. one class can inherit multiple interface .
+2. any concrete class must override all the abstract method from implemented interfaces.
+3. any class which is not abstract is called concrete class.
+4. diamond problem if their would have been two classes having same method then if we inherit both the classes then it would have been difficult for java compiler to decide which method to call.
+*/
+
+_________________________________________________________________________
+import java.util.Scanner;
+class ExceptionalDemo{
+	public static void main(String args[]){
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Enter your name :");
+		String name = reader.nextLine();
+		System.out.println("my name is :"+name);
+		System.out.println("length == " +ExceptionalDemo.getChar(name));
+	}
+	public static char getChar(String name){
+		char t ='b';
+		try{
+			t = name.charAt(2);
+			return t;
+		}catch(Exception e){
+			System.out.println("invalid char");
+			return 'a';
+		}
+	}	
+}
+/*
+1. finally block will always get executed if it exists even if return statement is present in catch block
+*/
+
+__________________________________________________________________________________
+class ExceptionDemo{
+	int age;
+	public void divide(int n, int d) throws IOException{
+		
+		try(Connection con= new Connection();
+			File f =new File();
+		){
+			int q = n/d;
+			System.out.println("Quotient: "+q);
+			if(age < 0){
+				throw new SaiException("Invalid age exception");
+			}
+		}
+		finally{	
+			System.out.println("Everything is over.");
+		}
+	}
+	public static void main(String args[]) throws IOException{
+		ExceptionDemo obj =new ExceptionDemo();
+		obj.divide(4,2);
+	}
+}
+class SaiException extends Exception{
+	public SaiException(String msg){
+		super(msg);
+	}
+}
+/*
+try 
+catch
+finally
+multi catch limitation
+Try with resources
+checked/CompileTime and unchecked/Runtime
+Nested try catch 
+
+tryblock then either catch or finally is compulsory.
+
+throw and throws ?
+throw -> is used to throw an exception
+throws -> it is keyword it compells the calling method to handle the exception.
+
+Interface Autocloseable {
+	public void close();
+}
+AutoCloseable obj = new Connection();
+obj.close();
+
+bydefault it will get called before catch block.
+
+for multi catch block there should not be any parent child relationship.
+*/
+________________________________________________________________________________
+
+import java.util.Scanner;
+class ExceptionHandlingDemo{
+	public static void main(String args[]){
+		Scanner readnum = new Scanner(System.in);
+		System.out.println("Enter a valid number 1 :");
+		int div = 0;
+		try{
+			int num1 = readnum.nextInt();
+			System.out.println("Enter a valid number 2 :");
+			int num2 = readnum.nextInt();
+			div =num1/num2;
+		}
+		catch(Exception e){
+			System.out.println("Error Occured. Please enter a valid Input");
+		}finally{
+			System.out.println("Result: "+div);
+		}
+	}
+}
+
+/*
+1. try block-> The code which is likely to throw any exception.
+2. Catch block -> The Exception which needs to be handled.
+3. Finally block -> Whether exception occurs or not it will always execute.
+4. if try block is present then either catch or finally must be present.
+5. there cannot be any other statement in between try catch or finally blocks.
+*/
+______________________________________________________________________
+class FunctionDemo{
+	int j;
+	public void increment(int num){
+		num++;
+		System.out.println("inside method num : "+num);
+	}
+	public void increment(FunctionDemo functionObj){
+		functionObj.j++;
+		System.out.println("inside function object :   "+ functionObj.j);
+	}
+	public void addtitlle(String name){
+		name = name+"kumar";
+		System.out.println("Name : "+name);
+	}
+	public void increment(int functionArray[]){
+		functionArray[1]=functionArray[1]+1;
+		System.out.println("inside incremnt of array  a[1] :  "+functionArray[1]);
+	}
+	
+	public void increment(Integer functionArray[]){
+		functionArray[1]=functionArray[1]+1;
+		System.out.println("inside incremnt of array  a[1] :  "+functionArray[1]);
+	}
+	
+	public static void main(String args[]){
+		FunctionDemo obj = new FunctionDemo();
+		obj.j = 10;//instance/Object
+		int i = 5;//primitive
+		obj.increment(i);
+		obj.increment(obj);
+		System.out.println("value of i inside main method :  "+i);
+		System.out.println("value of j inide main method :   "+obj.j);
+		String name = "Amit ";
+		obj.addtitlle(name);
+		System.out.println("Name in main :  "+name);
+		int[] a = new int[10];
+		obj.increment(a);
+		System.out.println("inside main a[1] :"+a[1]);
+		Integer[] array = new Integer[10];
+		array[1]= 15;
+		obj.increment(array);
+		System.out.println("inside main array[1] :"+array[1]);
+	}
+}
+
+/*
+autoboxing:
+any value of integer can be assingned to int other than null. same thing applies for other wrappers.
+int[]
+
+null pointer exeption if any operation is performed on null object.
+
+Syntax:
+	Type objectName = new Type();
+	Type[] objectName = new Type[size];
+*/
+___________________________________________________________________________
+
+class HelloJavaWorld implements C,D{
+	private int age;
+	public int getAge(){
+		return age;
+	}
+	public void setAge(int age){
+		if(age > 0){
+			this.age = age;
+		}
+	}
+	public static void show(int name){
+		System.out.println("String method called."+name);
+	}
+	public static void show(int number,int number1){
+		System.out.println("Int method called."+number);
+	}
+	
+	public static void main(String... args){
+		//System.out.println(args[0]);
+		System.out.println("Hello world.");
+		show(1,2);
+		show(1);
+	}
+}
+class A{
+	
+}
+class B{
+	
+}
+interface C{
+	
+}
+interface D{
+	
+}
+/*
+args[0] = sai
+args[1] = pallavi
+
+... var args -> array-> can be only the last argument.
+*/
+__________________________________________________________________
+
+class InstanceDemo{
+	int i; // primitive type - 0
+	Integer j;//wrapper class- null
+	
+	public InstanceDemo(){// default Constructor- No Arguments
+		i = -1;// how to make it 0 without writing anything
+		j = -2; 
+	}
+	
+	public InstanceDemo(int i, int j){//parameterized constructor
+		this.i=i;
+		this.j=j;
+	}
+	
+	public static void main(String args[]){
+		//int k;
+		//System.out.println(k);
+		InstanceDemo obj1 = new InstanceDemo(-5,-10);
+		System.out.println("j: "+obj1.j);
+		System.out.println("i: "+obj1.i);
+		InstanceDemo obj2 = new InstanceDemo();
+		System.out.println("j: "+obj2.j);
+		System.out.println("i: "+obj2.i);
+	}
+}
+
+____________________________________________________________
+
+
+class MulticatchDemo{
+	public static void main(String args[]){
+		MulticatchDemo obj = new MulticatchDemo();
+		obj.show(null,10);
+		
+	}
+	public void show(String str,int num){
+		
+		try{
+			System.out.println("String pass : "+str.charAt(2));
+			System.out.println("number pass : "+10/num);
+		}catch(NullPointerException|ArithmeticException e){
+			System.out.println("Please enter valid String");
+		}/*catch(ArithmeticException  e){
+			System.out.println("Please enter valid Number");
+		}*/catch(Exception  e){
+			System.out.println("Some other Exception occured.");
+		}finally(){
+		} 
+	}
+}
+/*
+1. We can write multiple catch blocks for one try block.
+2. We can handle exceptions in one catch block but there should not be any relationship between those exceptions.(jdk 1.7)
+3. The parent Exception should be always come under the last catch block.
+4. try with Resources -> the resources that needs to be closed can be declared here so that compiler/jvm can take care of closing that resource.Autoclosable Interface -> close()
+try(InputReader ir = new InputReader(file)){
+	
+interface AutoClosable{
+	public void close();
+}
+
+Class InputReader implements AutoClosable{
+	public void close(){
+		System.out.println("how to close");
+	}
+}
+
+AutoClosable obj = new InputReader(file);
+obj.close();
+*/
+
+__________________________________________________________
+
+class OverloadingDemo{
+	public void show(){
+		System.out.println("Inside without parameters");
+	}
+	
+	/*public void show(int i){
+		System.out.println("Inside with parameters");
+	}*/
+	public void show(Integer i){
+		System.out.println("inside Integer class");
+	}
+	public void show(String s){
+		System.out.println("inside String class");
+	}
+	public void show(Object o){
+		System.out.println("inside Object class");
+	}
+	public static void main(String[] args){
+		OverloadingDemo obj = new OverloadingDemo();
+		//obj.show();
+		obj.show(null);
+	}
+}
+
+/*
+1. java looks for nearest match so primitives are given first preference then wrapper classes.
+2. java only looks for more specific class.
+*/
+__________________________________________________________________
+
+class OverloadingDemo{
+	public void show(){
+		System.out.println("Inside without parameters");
+	}
+	
+	/*public void show(int i){
+		System.out.println("Inside with parameters");
+	}*/
+	public void show(Integer i){
+		System.out.println("inside Integer class");
+	}
+	public void show(String s){
+		System.out.println("inside String class");
+	}
+	public void show(Object o){
+		System.out.println("inside Object class");
+	}
+	public static void main(String[] args){
+		OverloadingDemo obj = new OverloadingDemo();
+		//obj.show();
+		obj.show(null);
+	}
+}
+
+/*
+1. java looks for nearest match so primitives are given first preference then wrapper classes.
+2. java only looks for more specific class.
+*/
+
+________________________________________________________
+
+class Parents{
+	public void show(){
+		System.out.println("parents mthod called");
+	}
+}	
+
+class OverridingDemo extends Parents{
+	public static void main(String args[]){
+		Parents obj = new Parents();
+		//obj.show();
+		OverridingDemo obj1 = new OverridingDemo();
+		obj1.show();
+		Parents obj2 = new OverridingDemo();
+		obj2.show();
+		OverridingDemo obj3 = new Parents();
+		obj3.show();
+	}
+	public void show(){
+		System.out.println("child Method called");
+	}
+	
+	
+}
+
+	
+	
+	
+_________________________________________________________
+
+
+import java.util.Scanner;
+class ReadDemo{
+	public static void main(String args[]){
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Enter your name :");
+		String name = reader.nextLine();
+		
+		System.out.println("Enter Your roll number : ");
+		int roll = reader.nextInt();
+		System.out.println("Enter your percentage :");
+		float percentage = reader.nextFloat();
+		System.out.println("Student details : ");
+		System.out.println("My Name is  :  "+name);
+		System.out.println("My roll number is :  "+roll);
+		System.out.println("My Percentage is : "+percentage);
+	}
+}
+
+________________________________________________________________
+
+class StringDemo{
+	String text = "hello";
+	public static void main(String args[]){
+		String name = "hello";
+		StringDemo obj = new StringDemo();
+		Student stu1 = new Student(1,"amit");
+		Student stu2 = new Student(1,"amit");
+		if(name.equals(obj.text)){
+			System.out.println("both name and text are same");
+		}else{
+			System.out.println("not equal");
+		}
+		
+		if(stu1.equals(stu2)){
+			System.out.println("both students are same");
+		}else{
+			System.out.println("both student are not same");
+		}
+	}
+}
+class Student{
+	int roll;
+	String name;
+	Student( int roll, String name){
+		this.roll = roll;
+		this.name = name;
+	}
+	
+	public boolean equals(Student stu){
+		//Student stu = (Student)obj;
+		if(this.roll == stu.roll && (this.name).equals(stu.name))
+			return true;
+		else 
+			return false;
+	}
+}
+_____________________________________________________
+
+class SumDemo{
+	public int sum (int num1,int num2){
+		System.out.println("int method called");
+		return num1+num2 ;
+	}
+	public float sum(float num1,float num2){
+		System.out.println("float method called");
+		return num1+num2;
+	}
+	public long sum(long num1,long num2){
+		System.out.println("long method called");
+		return num1+num2;
+	}
+	public double sum(double num1,double num2){
+		System.out.println("double method called");
+		return num1+num2;
+	}
+	public static void main(String args[]){
+		SumDemo obj1 = new SumDemo();
+		System.out.println(obj1.sum(5,10));
+		System.out.println(obj1.sum(12.5f,15.555f));
+		System.out.println(obj1.sum(5l,6l));
+		System.out.println(obj1.sum(52.636966,86.636));
+	}
+}	
+____________________________________________________________
+
+class TypeCastingDemo{
+	public static void main(String args[]){
+		Integer str = null;
+		//int j = (int)str;
+		//className obj = new Class();
+		//Integer i = Integer.parseInt(str);
+		long i = 5l;
+		//int j = (int)i;
+		byte a = 2;
+		byte b = 1;
+		byte c = (byte)(a+b);
+		//int k = (int)str;// parent child relationship / primitive
+		//Integer k = Integer.parseInt(str);//primitives are not allowed to store null
+		String k = String.valueOf(str);
+		System.out.println(k);
+		//System.out.println(c);
+		//System.out.println(i);//i.toString();
+		//A obj = new A();
+		//System.out.println(obj.toString());
+	}
+}
+class A{
+	String name = "Sai";
+	public String toString(){
+		return name;
+	}
+}
+______________________________________________________________________
+
+class TypeCastingDemo{
+	public static void main(String args[]){
+		Integer str = null;
+		//int j = (int)str;
+		//className obj = new Class();
+		//Integer i = Integer.parseInt(str);
+		long i = 5l;
+		//int j = (int)i;
+		byte a = 2;
+		byte b = 1;
+		byte c = (byte)(a+b);
+		//int k = (int)str;// parent child relationship / primitive
+		//Integer k = Integer.parseInt(str);//primitives are not allowed to store null
+		String k = String.valueOf(str);
+		System.out.println(k);
+		//System.out.println(c);
+		//System.out.println(i);//i.toString();
+		//A obj = new A();
+		//System.out.println(obj.toString());
+	}
+}
+class A{
+	String name = "Sai";
+	public String toString(){
+		return name;
+	}
+}
+_________________________________________________________
+
+import java.util.Scanner; 
+class UserDefineExceptionDemo{
+	public static void main(String args[]){
+		Student obj = new Student();
+		obj.getAge();
+	}
+}
+class Student {
+	int age;
+	public void getAge(){
+		System.out.println("Enter the age of the student :");
+		Scanner inputReader = new Scanner(System.in);
+		age = inputReader.nextInt();
+		if(age < 0){
+			throw new AgeException("Not a valid input for Age");
+		}
+		System.out.println("Age of Student :  "+this);
+	}
+	public String toString(){
+		return String.valueOf(age);
+	}
+}
+class AgeException extends RuntimeException{
+	String message;
+	public AgeException(String message){
+		this.message = message; 
+	}
+	public String toString(){
+		return message;
+	}
+}
+
+/*
+	1. User defined Exception can be created by extending Exception class/RuntimeException class.
+	2. toString method of Object class gets called when you print any object.
+*/
+____________________________________________________________________

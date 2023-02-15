@@ -1,0 +1,359 @@
+1. What is inheritance in java ?
+2. Does java support multiple inheritance?
+3. Will the following code compile :
+interface A{
+	public void show1();
+}
+
+interface B extends A{
+	public void show2();
+}
+4. Can we declare a class as Abstract class if no abstract method is present in the class ? - hw
+5. Is it mandatory to declare a class as abstract if any method present in the class is abstract ?
+6. If we are extending any abstract class is it mandatory to override all the abstract methods?
+7. What is the difference between interface and abstract classs(Consider Java7 and Java 8 both)?
+8. Can we override static methods ? what will happen if we try and override static method (Explain with an example)? -hw
+-> Static ->  class level
+-> instance -> Instance/object level
+class A{
+public static void show(){
+}
+}
+class B extends A{
+public static void show(){
+
+}
+}
+psvm{
+A a = new B();
+a.show();
+B b = new A();//XXX
+b.show();
+}
+9. Can we override private methods ? what will happen if we try and override private method (Explain with an example)?
+ans: Parent class -> private A() 
+Child class -> Public protected 
+10. find the output of the following code and please explain:
+class A{
+    int i = 10;
+}
+class B extends A{
+    int i = 20;
+}
+public class Test{
+    public static void main(String[] args){
+        A a = new B();
+        System.out.println(a.i);//10
+    }
+}
+Ans: 20
+Method overriding: 
+variable overriding: ???? >> reference
+11. find the output of the following code:
+class A{
+	public A(){
+		System.out.println("Inside constructor A");
+	}
+}
+class B extends A{
+	public B(){
+		this(5);// this or super
+		System.out.println("Inside constructor B");
+	}
+	public B(int i) {
+		System.out.println("Inside parameter constructor");
+	}
+}
+
+public class Test {
+	public static void main(String args[]) {
+		B b = new B();
+	}
+}
+Ans: 
+12. What is composition,Aggregation, Association,generalization ?
+Solution: https://javapapers.com/oops/association-aggregation-composition-abstraction-generalization-realization-dependency/
+https://www.infoworld.com/article/3029325/application-development/exploring-association-aggregation-and-composition-in-oop.html
+
+13. What is the difference between abstraction and encapsulation ?
+http://www.differencebetween.net/technology/difference-between-abstraction-and-encapsulation/
+
+
+14. find the output of the following code: 
+class A{
+	private void show() {
+		System.out.println("Inside class A");
+	}
+}
+class B extends A{
+	public void show(){		
+		System.out.println("Inside class B");
+	}	
+}
+
+public class Test {
+	public static void main(String args[]) {
+		A a = new B();
+		a.show();
+	}
+}
+15. Find the output of the following code:  
+class A{
+	private static void show() {
+		System.out.println("Inside class A");
+	}
+}
+class B extends A{
+	public void show(){		
+		System.out.println("Inside class B");
+	}	
+}
+
+public class Test {
+	public static void main(String args[]) {
+		A a = new B();
+		a.show();
+	}
+}
+16. Find the output of the following code: 
+class A{
+	public static void show() {
+		System.out.println("Inside class A");
+	}
+}
+public class Test {
+	public static void main(String args[]) {
+		A a = null;
+		a.show();
+	}
+}
+17. interface A{
+	int i=5;
+	public void show();
+}
+interface B{
+	int i=10;
+	public void show();
+}
+class C implements A,B{
+	public void show(){
+		System.out.println("Inside class A");
+	}
+	public static void main(String args[]){
+		C c = new C();
+		c.i;
+		c.show();
+	}
+}
+18. What is diamond problem in java ?
+19. Why multiple inheritance is not supported in Java?
+20. What is multi level inheritance in java ?
+21. What is polymorphism in java ? What are different types of Polymorphism available in java ?
+-> name is same- > mandatory
+-> Number of arguments
+-> types of arguments
+-> order of arguments
+-> access modifier -> x
+-> return type -> x
+overloading -> compile time/Static
+overriding ->  runtime
+
+22. what is the difference between overloading and overriding ?
+23. what is preferred more in java composition or inheritance ? -> Strategy pattern
+Account{
+withdraw();
+deposit();
+}
+FixedDeposit extends Account{
+	withdraw(){
+	}
+	deposit(){
+	}
+}
+RecurringDeposit extends Account{
+	withdraw(){
+	}
+	deposit(){
+	}
+}
+SavingDeposit extends Account{
+	withdraw(){
+	}
+	deposit(){
+	}
+}
+Test{
+	FixedDeposit f;
+	RecurringDeposit r;
+	depositFixedDeposit(){
+		f.deposit();
+	}
+	depositRecurringDeposit(){
+		r.deposit();
+	}
+	withdrawFixedDeposit(){
+		f.withdraw();
+	}	
+	withdrawRecurringDeposit(){
+		r.withdraw();
+	}
+	
+}
+Test{
+	Account a;//multiple objects
+	gettter
+	setter
+	withdraw(){
+		a.withdraw();
+	}
+	deposit(){
+		a.deposit();
+	}
+}
+
+24. Why do we need interface and abstract class ? or when do we need to go for abstract class or interface ?
+25. What is the difference between innerclass, subclass and nested class in java ? - hw
+
+
+_____________________________________________________________________________________
+
+docker registry url:https://hub.docker.com/r/in28min/todo-rest-api-h2
+1. for running the docker container 
+docker run in28min/todo-rest-api-h2:1.0.0.RELEASE
+
+2. for running the docker container in local machine port
+Syntax:
+docker run -p host_port:container_port app/registry:tagname_or_releasename
+docker run -p 5000:5000 in28min/todo-rest-api-h2:1.0.0.RELEASE
+
+3. for running the docker container in detached mode (-d stands for detached)
+docker run -p 5000:5000 -d in28min/todo-rest-api-h2:1.0.0.RELEASE
+it returns the docker container number
+
+4. To see the logs:
+docker log container_number
+
+5. list out docker container:
+docker container ls
+
+6. list out docker container with exited state also:
+docker container ls -a
+
+7. list out docker images in local 
+docker images
+
+8. Stop docker container
+Syntax:
+docker container stop container_no
+docker container stop 9a7e7639fa42
+
+9. pull docker image 
+docker pull in28min/todo-rest-api -h2
+
+10. 
+Docker client -> Docker daemon -> local images		
+							   -> containers
+							   -> image registry
+							   
+							   
+11. Container1 		Container2			Container3
+					Docker Engine
+					Host OS
+					Cloud Infrastructure
+					
+					
+12. Application 	
+	Software
+	guest os
+						Hypervisor
+						Host OS
+						Hardware
+						
+13. docker tag 	in28min/todo-rest-api-h2:1.0.0.RELEASE in28min/todo-rest-api-h2:latest					
+
+latest tag name may not be the latest
+
+14. docker search mysql
+
+15. shows all the steps of image creation: 
+docker image history id_of_image
+
+16. 
+docker image inspect id_of_image
+
+17.
+docker image remove id_of_image
+
+18. docker container pause container_id
+docker container unpause container_id
+
+19. docker container inspect container_id
+
+20. remove all the containers
+ docker container prune
+
+21.
+docker container stop container_id
+stop -> SIGTERM -> gracefully shutdown
+
+22.
+docker container kill container_id
+kill -> SIGKILL -> terminates immediately
+
+23. when you restart the docker desktop it will restart by default:
+docker run -p 5000:5000 -d -- restart=always in28min/todo-rest-api-h2:1.0.0.RELEASE						   
+--restart=always/no	
+
+24. 			
+docker events
+
+25 top memory allocation to process container
+docker top container_id
+
+26 stats of each container:
+docker stats		
+
+27 
+docker run -p 5000:5000 -d -m 512m --cpu-quota 5000 in28min/todo-rest-api-h2
+5000 -> 5%
+100000 -> 100%
+
+28. 
+docker system df
+
+29.
+docker run -p 9411:9411 openzipkin/zipkin:2.23
+
+_____________________________________________________________
+
+Step: 1
+=======
+docker run -p 9411:9411 openzipkin/zipkin:2.23
+
+Step: 2(pom.xml)
+=======
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-sleuth</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-sleuth-zipkin</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.springframework.amqp</groupId>
+	<artifactId>spring-rabbit</artifactId>
+</dependency>
+
+Step: 3(application.properties)
+=======
+spring.sleuth.sampler.probability=1.0
+#spring.zipkin.baseUrl=http://localhost:9411/
+
+Step: 4(Add logs)
+=================
+Logger logger = LoggerFactory.getLogger(.class) -> slf4j
+
+Url:
+====
+http://localhost:9411/zipkin/
