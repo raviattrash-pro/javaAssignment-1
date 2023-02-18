@@ -1,0 +1,140 @@
+Bubble sort -> adjacent element swap 
+			->stable,used for small value of N (good)
+
+static void bubble(int [] arr){
+	for(int i=0;i<arr.length;i++){
+		for(int j=1;j<arr.length;j++){
+			//swap if the item is smaller than previous element 
+			int temp=arr[i];
+			arr[i] = arr[j-1];
+			arr[j-1] = temp;
+		}
+	}
+}
+
+
+selection sort -> first max/min element swap to last index .
+			   ->swap with correct index
+			   ->go up to n-i; -> because last index is containg greater num.
+			   
+static void selection(int [] arr){
+	for(int i=0;i<arr.length;i++){
+		int last = arr.length-i-1;
+		int maxIndex = getMaxIndex(arr,0,last);
+		swap(arr,maxIndex,last);
+	}
+}
+static void swap(int [] arr,int maxIndex,intlast){
+	int temp=arr[i];
+		arr[i] = arr[j-1];
+		arr[j-1] = temp;
+}
+
+private static int getMaxIndex(int [] arr,int start,int end){
+	int max= start;
+	for(int i=start;i<=end;i++){
+		if (arr[max]<arr[i]){
+			max =i;
+		}
+	}
+	return max;
+}	
+
+
+Insertion sort -> sort first 2 then 3 element .... -> partial sorting 
+				->it takes part in hybrid sorting algorithms
+
+for(int i=0;i<arr.length;i++){
+		for(int j=i+1;j<arr.length;j++){
+			if(arr[i] <arr[j-1]){
+				swap(arr,i,j-1);
+			}
+			else{
+				break;
+			}
+		}
+	}
+	
+Cyclis sort	-> given 1-> N or 0 to N 
+			index = value-1 for (1-N)
+			index = value for(0-N)
+			swap the value with correct index 
+			
+Q1 missing number -> [1,0,3,2] o(n)
+
+pubic int missingNumber(int [] arr){
+	int i=0;
+	while (i<arr.length){
+		int correct = arr[i];
+		if(arr[i] < arr.length && arr[i]!=arr[correct]){
+			swap(arr,i,correct);
+		}else{
+			i++;
+		}
+	}
+	
+	//search for first missing number
+	
+	for(int index=0;index<arr.length;index++){
+		if(arr[index]!=index){
+			return index;
+		}
+	}
+}
+__________________________________________________
+//find all missing (0-N)
+pubic List<Integer> FindAllMissing(int [] arr){
+	int i=0;
+	while (i<arr.length){
+		int correct = arr[i]-1;
+		if(arr[i]!=arr[correct]){
+			swap(arr,i,correct);
+		}else{
+			i++;
+		}
+	}
+	List<Integer> ans = new Arraylist<>();
+	
+	for(int index=0;index<arr.length;index++){
+		if(arr[index]!=index){
+			return ans.add(index+1);
+		}
+	}
+	return ans;
+}
+________________________________________________________
+
+//find Allduplicate
+pubic List<Integer> FindDuplicate(int [] arr){
+	int i=0;
+	while (i<arr.length){
+		
+		if(arr[i]!=i+1]){
+			int correct = arr[i];
+			if(arr[i]!=arr[correct]){
+			swap(arr,i,correct);
+			}
+			else{
+				return arr[i];
+			}
+		}else{
+			i++;
+		}
+		return -1;
+	}
+	List<Integer> ans = new Arraylist<>();
+	
+	for(int index=0;index<arr.length;index++){
+		if(arr[index]!=index){
+			ans.add(index+1);
+		}
+	}
+	return ans;
+}
+
+
+
+
+			
+
+		   
