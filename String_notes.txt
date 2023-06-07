@@ -1,0 +1,196 @@
+String 
+collection sequence of character -> "Hello"
+
+Hello -> string literal—a series of characters in your code that is enclosed in double quotes.
+-> compiler creates a String object with its value
+
+the String class has thirteen constructors that allow you to provide the initial value of the string using different sources, such as an array of characters:
+
+char[] helloArray = { 'h', 'e', 'l', 'l', 'o', '.' };
+String helloString = new String(helloArray);
+System.out.println(helloString);
+The last line of this code snippet displays hello.
+
+int [] arr = {1,2,3,4,5};
+---> stack(reference variable ) = ---> Heap memory(object)
+
+String name = "Hello ";
+String -> class -> start with capital letter
+ctrl click on string -> String is class of java
+
+String a = "hello";
+String b = "hello";
+
+**
+| a   |\    |^^^^^|
+|  b  | \__>|hello|   
+|_____|     |     |
+ 
+ stack       heap
+_____________________________________________________________________________________________
+concept 
+1.String pool  ** -> seperate memeory structure inside heap 
+				  ->all the similar value of string are not recreated in the pool.
+				  -> optimize code
+				  ->if you try to change the original object.you cannot change -> create new obj
+
+2.Immutability  -> security reason (person1,2,3.....)  want to change name 
+___________________________________________________________________________________________
+comparison of String 
+
+1. == comparator -> check the reference variable are pointing to same object (memeory)
+
+String a = "hello";
+String b = "hello";
+System.out.println(a==b);
+
+-> true
+2. .equals -> value comparison ->method
+
+String a = new String("Hello");
+String b = new String("Hello");
+
+a==b -> false
+
+
+________________________________________________________________________________________
+
+charAt() -> index accessing 
+System.out.println() -> out -> PrintStream class type
+println() -> method overloading used  => called toString method
+System.out.println(Arrays.toString(new int [] {2,3,4,5})); -> to string of String (method overriding)
+print("pie: %.3f"Math.PI);
+%c- Character,%d-Deimal%e-exponential,%f- float,%i-Integer,%o-octal,%s-String,%u-Unsigned decimal
+%x-Hexadecimal,%t-date/time,%n-newline
+
+'a'+'b' => 195
+"a"+"b" =>ab   -ve not work  +ve concat => operator overloded (not support in java)
+(char)('a'+3) => d 
+"a"+1 => a1 => integer conveerted into String
+-> String ans = new Integer(56) +""+new Arraylist<>();-> 56[]
+"a"+'b' => ab
+
+ 
+series
+ (char)('a'+i) => wastage of storage of string pool
+ 
+_______________________________________________________________________________________
+
+String Builder -> mutable 
+
+String Builder builder = new String Builder();
+for(int i=0;i<26;i++){
+	char ch = (char)('a'+i);
+	builder.append(ch);
+}
+System.out.println((builder.toString());
+
+-> all methods of builder
+
+____________________________________________________________________________________
+
+Arrays.toString(name.toCharArray()) -> create the character array of string
+
+.strip -> extra space remove
+
+.split(regex:" ") -> split the string 
+String[] split(String regex)
+String[] split(String regex, int limit)
+
+.length() -> inside length is call
+
+Character.isDigit() ->
+
+Character.getNumericValue() ->
+ 
+ .trim() -> Returns a copy of this string with leading and trailing white space removed.
+ 
+ CharSequence subSequence(int beginIndex, int endIndex) ->
+ Returns a new character sequence constructed from beginIndex index up until endIndex - 1.
+ 
+ 
+ 
+ 
+ 
+ 
+getChars()-> to convert a string into an array of characters
+string1.concat(string2);  -> add 2 strings  or "Hello," + " world" + "!"
+
+Using String's static format() method allows you to create a formatted string that you can reuse, as opposed to a one-time print statement. 
+For example, instead of
+System.out.printf("The value of the float " +
+                  "variable is %f, while " +
+                  "the value of the " + 
+                  "integer variable is %d, " +
+                  "and the string is %s", 
+                  floatVar, intVar, stringVar); 
+you can write
+
+String fs;
+fs = String.format("The value of the float " +
+                   "variable is %f, while " +
+                   "the value of the " + 
+                   "integer variable is %d, " +
+                   " and the string is %s",
+                   floatVar, intVar, stringVar);
+System.out.println(fs);
+
+
+
+Note: Each of the Number subclasses that wrap primitive numeric types also provides a parseXXXX() method (for example, parseFloat()) that can be used to convert strings to primitive numbers. Since a primitive type is returned instead of an object, the parseFloat() method is more direct than the valueOf() method. For example, in the ValueOfDemo program, we could use:
+float a = Float.parseFloat(args[0]);
+float b = Float.parseFloat(args[1]);
+
+
+toString()-> will convert its primitive type to a string. For example:
+
+int i;
+double d;
+String s3 = Integer.toString(i); 
+String s4 = Double.toString(d); 
+
+
+
+
+public class ToStringDemo {
+    
+    public static void main(String[] args) {
+        double d = 858.48;
+        String s = Double.toString(d);
+        
+        int dot = s.indexOf('.');
+        
+        System.out.println(dot + " digits " +
+            "before decimal point.");
+        System.out.println( (s.length() - dot - 1) +
+            " digits after decimal point.");
+    }
+}
+The output of this program is:
+
+3 digits before decimal point.
+2 digits after decimal point.
+
+
+The substring method has two versions
+
+1.String substring(int beginIndex, int endIndex)	
+	->Returns a new string that is a substring of this string. 
+	The substring begins at the specified beginIndex and extends 
+	to the character at index endIndex - 1.
+2.String substring(int beginIndex) ->
+	Returns a new string that is a substring of this string. 
+	The integer argument specifies the index of the first character. 
+	Here, the returned substring extends to the end of the original string.
+_______________________________________________________________________________________
+
+
+https://github.com/raviattrash-pro/javaAssignment-1.git
+
+
+
+
+
+
+
+
